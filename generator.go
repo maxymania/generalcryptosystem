@@ -64,6 +64,10 @@ func getCurve(group ObjectID) elliptic.Curve{
 		return curve
 	case group_EcBrainpool:
 		return getBrainpool(group)
+	case group_ComplxGroup:
+		if g,ok := complexGroups[group[1]]; ok {
+			return g.AsCurve()
+		}
 	}
 	return nil
 }

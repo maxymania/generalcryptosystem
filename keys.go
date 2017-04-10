@@ -62,6 +62,11 @@ const (
 	Brainpool_P384t1
 	Brainpool_P512r1
 	Brainpool_P512t1
+	
+	/* Complex number groups, see github.com/maxymania/complexdh */
+	Complex_2048bit
+	Complex_4096bit
+	Complex_8192bit
 )
 
 const (
@@ -69,6 +74,7 @@ const (
 	group_EcFips = 2
 	group_EcKoblitz = 3
 	group_EcBrainpool = 4
+	group_ComplxGroup = 5
 )
 
 type ObjectID []int
@@ -116,6 +122,10 @@ func init(){
 	groups[Brainpool_P384t1] = ObjectID{group_EcBrainpool,384,2}
 	groups[Brainpool_P512r1] = ObjectID{group_EcBrainpool,512,1}
 	groups[Brainpool_P512t1] = ObjectID{group_EcBrainpool,512,2}
+	
+	groups[Complex_2048bit] = ObjectID{group_ComplxGroup,1}
+	groups[Complex_4096bit] = ObjectID{group_ComplxGroup,2}
+	groups[Complex_8192bit] = ObjectID{group_ComplxGroup,3}
 }
 
 type PublicKey struct{
